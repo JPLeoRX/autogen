@@ -1,0 +1,21 @@
+{
+  "domainName": "Make",
+  "fields": [
+    {
+      "name": "readableId",
+      "typeDO": "String",
+      "typeBO": "String",
+      "typeAO": "String",
+      "typeMP": "String"
+    },
+
+    {
+      "name": "name",
+      "typeDO": "String",
+      "typeBO": "String",
+      "typeAO": "String",
+      "typeMP": "String"
+    }
+  ]
+}
+
