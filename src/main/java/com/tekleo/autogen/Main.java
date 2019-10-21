@@ -1,5 +1,6 @@
 package com.tekleo.autogen;
 
+import com.tekleo.autogen.pom.objects.PomDependency;
 import com.tekleo.autogen.pom.objects.PomProperties;
 import com.tekleo.autogen.pom.objects.PomProperty;
 
@@ -10,5 +11,8 @@ public class Main {
 
         PomProperties all = new PomProperties(p1, p2);
         System.out.println(all.getFilled());
+
+        PomDependency dependency = new PomDependency("com.what2drive", "common-id", "1.0-SNAPSHOT", null);
+        System.out.println(dependency.getFilled());
     }
 }
