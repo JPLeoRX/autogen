@@ -11,11 +11,18 @@ public class PomProperty implements TemplateObject {
     private String key;
     private String value;
 
+    // Constructors
+    //------------------------------------------------------------------------------------------------------------------
     public PomProperty(String key, String value) {
         this.key = key;
         this.value = value;
     }
+    //------------------------------------------------------------------------------------------------------------------
 
+
+
+    // Required
+    //------------------------------------------------------------------------------------------------------------------
     @Override
     public Template getTemplate() {
         return PomTemplates.PROPERTY;
@@ -28,4 +35,5 @@ public class PomProperty implements TemplateObject {
                 new TemplateKeyValuePair(PomTemplateKeys.PROPERTY_VALUE, new TemplateValue(value))
         );
     }
+    //------------------------------------------------------------------------------------------------------------------
 }

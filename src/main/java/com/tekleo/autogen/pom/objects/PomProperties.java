@@ -10,6 +10,8 @@ import java.util.List;
 public class PomProperties implements TemplateObject {
     private List<PomProperty> properties;
 
+    // Constructors
+    //------------------------------------------------------------------------------------------------------------------
     public PomProperties(List<PomProperty> properties) {
         this.properties = properties;
     }
@@ -17,7 +19,12 @@ public class PomProperties implements TemplateObject {
     public PomProperties(PomProperty ... properties) {
         this(Arrays.asList(properties));
     }
+    //------------------------------------------------------------------------------------------------------------------
 
+
+
+    // Required
+    //------------------------------------------------------------------------------------------------------------------
     @Override
     public Template getTemplate() {
         throw new RuntimeException();
@@ -35,4 +42,5 @@ public class PomProperties implements TemplateObject {
             s = s + property.getFilled() + "\n";
         return s.trim();
     }
+    //------------------------------------------------------------------------------------------------------------------
 }
