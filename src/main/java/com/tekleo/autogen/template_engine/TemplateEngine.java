@@ -17,12 +17,12 @@ public final class TemplateEngine {
     public static String fillWithKeyValuePairs(String templateText, List<TemplateKeyValuePair> pairs) {
         for (TemplateKeyValuePair pair : pairs)
             templateText = fillWithKeyValuePair(templateText, pair);
-        return templateText;
+        return templateText.trim();
     }
 
     public static String fillWithKeyValuePair(String templateText, TemplateKeyValuePair pair) {
         while (templateText.contains(pair.getKeyAsStr()))
             templateText = templateText.replace(pair.getKeyAsStr(), pair.getValueAsStr());
-        return templateText;
+        return templateText.trim();
     }
 }
