@@ -1,0 +1,3 @@
+public ${fieldType} get${fieldName}() {
+    return ${fieldVariable};
+}

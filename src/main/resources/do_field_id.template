@@ -1,0 +1,1 @@
+@Id @Column(name = "${columnName}") private ${fieldType} ${fieldVariable};
