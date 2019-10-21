@@ -27,8 +27,16 @@ public class TemplateKeyValuePair implements Serializable {
         return key;
     }
 
+    public String getKeyAsStr() {
+        return getKey().getKey();
+    }
+
     public TemplateValue getValue() {
         return value;
+    }
+
+    public String getValueAsStr() {
+        return getValue().getValue();
     }
     //------------------------------------------------------------------------------------------------------------------
 
