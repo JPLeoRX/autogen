@@ -1,27 +1,21 @@
 package com.tekleo.autogen.java;
 
-import com.tekleo.autogen.template_engine.*;
+import com.tekleo.autogen.template_engine.Template;
+import com.tekleo.autogen.template_engine.TemplateKeyValuePair;
+import com.tekleo.autogen.template_engine.TemplateObject;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Field implements TemplateObject {
-    private String visibility;
-    private Variable variable;
+public class Variable implements TemplateObject {
+    private String type;
+    private String name;
 
     // Constructors
     //------------------------------------------------------------------------------------------------------------------
-    public Field(String visibility, Variable variable) {
-        this.visibility = visibility;
-        this.variable = variable;
-    }
-
-    public Field(String visibility, String type, String name) {
-        this(visibility, new Variable(type, name));
-    }
-
-    public Field(Variable variable) {
-        this("private", variable);
+    public Variable(String type, String name) {
+        this.type = type;
+        this.name = name;
     }
     //------------------------------------------------------------------------------------------------------------------
 
@@ -29,12 +23,12 @@ public class Field implements TemplateObject {
 
     // Getters
     //------------------------------------------------------------------------------------------------------------------
-    public String getVisibility() {
-        return visibility;
+    public String getType() {
+        return type;
     }
 
-    public Variable getVariable() {
-        return variable;
+    public String getName() {
+        return name;
     }
     //------------------------------------------------------------------------------------------------------------------
 
@@ -44,14 +38,14 @@ public class Field implements TemplateObject {
     //------------------------------------------------------------------------------------------------------------------
     @Override
     public Template getTemplate() {
-        return new Template("field.template");
+        return new Template("variable.template");
     }
 
     @Override
     public List<TemplateKeyValuePair> getKeyValuePairs() {
         return Arrays.asList(
-                new TemplateKeyValuePair("fieldVisibility", visibility),
-                new TemplateKeyValuePair("fieldVariable", variable.getFilled())
+                new TemplateKeyValuePair("variableType", type),
+                new TemplateKeyValuePair("variableName", name)
         );
     }
     //------------------------------------------------------------------------------------------------------------------

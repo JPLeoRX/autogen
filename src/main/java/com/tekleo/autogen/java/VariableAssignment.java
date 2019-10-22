@@ -1,27 +1,27 @@
 package com.tekleo.autogen.java;
 
-import com.tekleo.autogen.template_engine.*;
+import com.tekleo.autogen.template_engine.Template;
+import com.tekleo.autogen.template_engine.TemplateKeyValuePair;
+import com.tekleo.autogen.template_engine.TemplateObject;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Field implements TemplateObject {
-    private String visibility;
-    private Variable variable;
+public class VariableAssignment implements TemplateObject {
+    private String nameA;
+    private String nameB;
 
     // Constructors
     //------------------------------------------------------------------------------------------------------------------
-    public Field(String visibility, Variable variable) {
-        this.visibility = visibility;
-        this.variable = variable;
+    public VariableAssignment(String nameA, String nameB) {
+        this.nameA = nameA;
+        this.nameB = nameB;
     }
 
-    public Field(String visibility, String type, String name) {
-        this(visibility, new Variable(type, name));
-    }
-
-    public Field(Variable variable) {
-        this("private", variable);
+    public VariableAssignment(Variable variableA, Variable variableB) {
+        this(variableA.getName(), variableB.getName());
+        if (!variableA.getType().equals(variableB.getType()))
+            throw new IllegalArgumentException();
     }
     //------------------------------------------------------------------------------------------------------------------
 
@@ -29,12 +29,12 @@ public class Field implements TemplateObject {
 
     // Getters
     //------------------------------------------------------------------------------------------------------------------
-    public String getVisibility() {
-        return visibility;
+    public String getNameA() {
+        return nameA;
     }
 
-    public Variable getVariable() {
-        return variable;
+    public String getNameB() {
+        return nameB;
     }
     //------------------------------------------------------------------------------------------------------------------
 
@@ -44,14 +44,14 @@ public class Field implements TemplateObject {
     //------------------------------------------------------------------------------------------------------------------
     @Override
     public Template getTemplate() {
-        return new Template("field.template");
+        return new Template("variable-assignment.template");
     }
 
     @Override
     public List<TemplateKeyValuePair> getKeyValuePairs() {
         return Arrays.asList(
-                new TemplateKeyValuePair("fieldVisibility", visibility),
-                new TemplateKeyValuePair("fieldVariable", variable.getFilled())
+                new TemplateKeyValuePair("variableNameA", nameA),
+                new TemplateKeyValuePair("variableNameB", nameB)
         );
     }
     //------------------------------------------------------------------------------------------------------------------
