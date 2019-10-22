@@ -32,6 +32,10 @@ public class Constructor implements TemplateObject {
         this(visibility, className, new Parameters(fields));
     }
 
+    public Constructor(String className, Fields fields) {
+        this("public", className, fields);
+    }
+
     @Override
     public Template getTemplate() {
         return new Template("constructor.template");

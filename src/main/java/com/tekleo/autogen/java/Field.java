@@ -16,12 +16,16 @@ public class Field implements TemplateObject {
         this.variable = variable;
     }
 
+    public Field(Variable variable) {
+        this("private", variable);
+    }
+
     public Field(String visibility, String type, String name) {
         this(visibility, new Variable(type, name));
     }
 
-    public Field(Variable variable) {
-        this("private", variable);
+    public Field(String type, String name) {
+        this("private", type, name);
     }
     //------------------------------------------------------------------------------------------------------------------
 
