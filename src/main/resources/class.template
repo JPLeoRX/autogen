@@ -1,4 +1,4 @@
-public class ${className} {
+public class ${className} ${extends} ${implements} {
 ${fields}
 
 ${constructor}
